@@ -21,11 +21,11 @@ services:
 
   cloudreve:
     container_name: cloudreve_server
-    image: xavierniu/cloudreve:latest
+    image: cloudreve/cloudreve:latest
     ports:
       - 5212:5212
     volumes:
-      - ./config:/cloudreve/config
+      - ./config/conf.ini:/cloudreve/conf.ini
       - ./cloudreve/downloads:/downloads
       - ./cloudreve/database:/cloudreve/db
       - ./cloudreve/avatar:/cloudreve/avatar
