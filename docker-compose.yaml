@@ -1,0 +1,36 @@
+version: "3.0"
+
+services:
+
+  # aria2:
+  #   container_name: aria2_server
+  #   image: p3terx/aria2-pro
+  #   ports:
+  #     - 6800:6800
+  #     - 6888:6888
+  #     - 6888:6888/udp
+  #   environment:
+  #     - PUID=${CLOUDREVE_PUID}
+  #     - PGID=${CLOUDREVE_PGID}
+  #     - RPC_SECRET=${ARIA2_RPC_SECRET}
+  #   volumes:
+  #     - ./aria2/config:/config
+  #     - ./aria2/downloads:/downloads
+  #   networks:
+  #     - cloudreve-network
+
+  cloudreve:
+    container_name: cloudreve_server
+    image: xavierniu/cloudreve:latest
+    ports:
+      - 5212:5212
+    volumes:
+      - ./config:/cloudreve/config
+      - ./cloudreve/downloads:/downloads
+      - ./cloudreve/database:/cloudreve/db
+      - ./cloudreve/avatar:/cloudreve/avatar
+      - ./cloudreve/uploads:/cloudreve/uploads
+    networks:
+      - cloudreve-network
+networks:
+  cloudreve-network:
