@@ -22,6 +22,7 @@ services:
   cloudreve:
     container_name: cloudreve_server
     image: cloudreve/cloudreve:latest
+    restart: always
     ports:
       - 5212:5212
     volumes:
